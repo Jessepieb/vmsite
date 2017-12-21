@@ -1,0 +1,51 @@
+<?php echo '
+        <div id="footer" data-animate="fadeInUp">
+            <div class="container">     
+                <div class="row">           
+                    <div class="col-md-3 col-sm-6">
+                        <h4>Pages</h4>      
+                                        
+                        <ul>        
+                            <li><a href="text.html">About us</a>
+                            </li>
+                            <li><a href="termsofuse.php?file=terms.txt">Terms and conditions</a>
+                            </li>
+                            <li><a href="faq.html">FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-3 col-md-6">
+                        <h4>User section</h4>
+
+                        <ul>
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                            </li>
+                        </ul>
+
+                        <hr class="hidden-md hidden-lg hidden-sm">
+
+                    </div>
+                    <div class="col-md-3 col-sm-8">
+
+                        <h4>Where to find us</h4>
+
+                        <p><strong>NHL/Stenden</strong>
+                            <br>Rengerslaan 10
+                            <br>Leeuwarden
+                            <br>8917 DD
+                            <br>
+                            <strong>Nederland</strong>
+                        </p>
+
+                        <a href="contact.php">Go to contact page</a>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+                <!-- /.row -->
+
+            </div>
+	</div>
+'; ?>

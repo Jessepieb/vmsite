@@ -1,7 +1,7 @@
 <?php 
 require_once('basket.php');
 $basket = TotalProducts();
-
+$log = (isset($_SESSION['user'])) ? '<a href="logout.php" data-toggle="modal" data-target="#login-modal">Logout</a></li>' : '<li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>';
 echo '
 <div class="navbar navbar-default yamm" role="navigation" id="navbar">
     <div class="container">
@@ -25,7 +25,7 @@ echo '
             <ul class="nav navbar-nav navbar-left">
             <li class="active"><a href="index.php">Home</a></li>
             <li class="dropdown yamm-fw">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Products <b class="caret"></b></a>
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Products <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <div class="yamm-content">
@@ -34,25 +34,25 @@ echo '
                                     <h5>Shop</h5>
                                     <ul>
                                         <li><a href="index.php">Homepage</a></li>
-                                        <li><a href="TODO">All Items</a></li>
-                                        <li><a href="TODO">SALE</a></li>
+                                        <li><a href="search.php?cat=all">All Items</a></li>
+                                        <li><a href="search.php?cat=Development-boards">Development-boards</a></li>
                                         <li><a href="TODO">TODO</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-3">
                                     <h5>User</h5>
                                     <ul>
-                                          <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                                        <li>'.$log.'</li>
+                                        <li><a href="account.php">Account Information</a></li>
                                         <li><a href="TODO">TODO</a></li>
-                                        <li><a href="TODO">TODO</a></li>
-                                        <li><a href="TODO">Customer account(TODO)</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-sm-3">
-                                    <h5>TODO categorie</h5>
+                                    <h5>Information</h5>
                                     <ul>
-                                        <li><a href="account.php">Shopping cart</a></li>
-                                        <li><a href="TODO">TODO</a></li>
+                                        <li><a href="faq.php">FAQ</a></li>
+                                        <li><a href="termsofuse.php?file=terms.txt">Terms and Conditions</a></li>
+                                        <li><a href="about.php">About us</a> </li>
                                     </ul>
                                 </div>
                             </div>

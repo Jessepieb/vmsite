@@ -1,1 +1,9 @@
-"Hello World"
+# robots.txt for http://www.hackbaar.nl/
+
+User-agent: *
+Disallow: /cyberworld/map/ # This is an infinite virtual URL space
+
+# Cybermapper knows where to go.
+User-agent: cybermapper
+Disallow: *
+

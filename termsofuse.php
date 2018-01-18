@@ -23,11 +23,16 @@ include("includes/head.php");
                         <?php
                             $url = $_SERVER['REQUEST_URI'];
                             if ((strpos($url,"file")&&(strpos($url,".txt")) !== false)) {
-                               $test = file_get_contents($_GET['file']);
-                               echo "<pre>$test</pre>";
+                               if (file_exists((string)($_GET['file']))){
+                                   $test = file_get_contents($_GET['file']);
+                                   echo "<pre>$test</pre>";
+                               }
+                               else {
+                                   echo "<strong>file does not exist</strong>";
+                               }
                             }
                             else{
-                                echo "<strong>couldn't find file</strong>";
+                                echo "<strong>couldn't find .txt file</strong>";
                             }
                         ?>
         </div>

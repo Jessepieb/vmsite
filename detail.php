@@ -12,7 +12,7 @@
         $stmt->bindParam(':id',$id);
         $stmt->execute();
         if($stmt->fetchColumn() == 1){ 
-            $product_id = $name = $description = $price = $img = $extraDes =""; //variabelen voor productinformatie
+            $product_id = $name = $description = $price = $img = $extraDes = $cat = ""; //variabelen voor productinformatie
             $alreadySet = false;
             $stmt = $conn->prepare("SELECT * FROM php.product LEFT OUTER JOIN php.review using(product_id) WHERE product.product_id =:id ;"); //include reviews
             $stmt->bindParam(':id',$id);
@@ -25,10 +25,11 @@
                         $description = (!empty($row[3])? $row[3]: 'No description available.'); //description is niet verplicht
                         $img = $row[4];
                         $extraDes = (!empty($row[5])? $row[5]: ""); //als er geen 'extraDes' is, moet het een empty string zijn
+                        $cat = $row[6];
                         $alreadySet = true;
                     }
-                    if(!empty($row[6])){
-                        array_push($reviews,array($row[6],$row[7],$row[8])); //reviews toevoegen aan array
+                    if(!empty($row[7])){
+                        array_push($reviews,array($row[7],$row[8],$row[9])); //reviews toevoegen aan array
                     }
                 }
                 if(count($reviews) > 0){
@@ -56,7 +57,18 @@
         <div id="all">
             <div id="content">
                 <div class="container">
-                    <div class="col-md-12">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="index.php">Home</a>
+                        </li>
+                        <li><a href="search.php?cat=all">All items</a>
+                        </li>
+                        <li><a href="search.php?cat=<?php echo $cat ?>"><?php echo $cat ?></a>
+                        </li>
+                        <li><?php echo $name ?></li>
+                    </ul>
+
+                </div>
                     <div class="col-md-3">
                     </div>
                     <div class="col-md-10">
@@ -82,8 +94,8 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-4">
-                                    <a href=<?php echo str_replace("1","1_2",$img) ?> class="thumb">
-                                        <img src=<?php echo str_replace("1","1_2",$img) ?> alt="" class="img-responsive">
+                                    <a href=<?php echo str_replace(".jpg","_2.jpg",$img) ?> class="thumb">
+                                        <img src=<?php echo str_replace(".jpg","_2.jpg",$img) ?> alt="" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
